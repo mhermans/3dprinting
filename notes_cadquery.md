@@ -17,3 +17,8 @@ conda install -c cadquery -c conda-forge cq-editor=master
 
 https://cqparts.github.io/
 https://cadquery.readthedocs.io/en/latest/selectors.html
+
+
+conda activate cadquery
+cq-editor
+
