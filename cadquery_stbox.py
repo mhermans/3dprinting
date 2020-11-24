@@ -10,7 +10,7 @@ innerbox_height = box_height
 innerbox_width = box_with - ( wall_with / 2)
 innerbox_depth = box_depth - ( wall_with / 2)
 
-fillet_size = box_depth / 10
+fillet_size = box_depth / 20
 
 # .edges("|Z") # edges that are parallel to the Z-axis
 
@@ -26,11 +26,13 @@ inbox = inbox.translate( (0, 0, ( wall_with / 4) ))
 
 box = outbox.cut(inbox)
 
+tab_width = 25
+tab_depth = 13
 
 #tab = cq.Workplane('XZ').moveTo(-20, 24).box(10, 2, 25)
-tab = cq.Workplane("XY").box(10, 20, 2)
-tab = tab.faces('<Z').rect(10, 20).workplane(offset=3.0).moveTo(-4,0).rect(2, 20).loft(combine=True)
-tab = tab.translate( (-20, 0, 24))
+tab = cq.Workplane("XY").box(tab_depth, tab_width , 2)
+tab = tab.faces('<Z').rect(tab_depth, tab_width ).workplane(offset=12.0).moveTo(-6.4, 0).rect(0.1, tab_width).loft(combine=True)
+tab = tab.translate( (-18.5, 0, 24))
 
 show_object(tab)
 
