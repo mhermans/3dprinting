@@ -1,0 +1,13 @@
+import cadquery as cq
+base = cq.Workplane("XY").circle(5.5).extrude(11)
+#base = base.shell(2)
+base = base.faces('>Z').workplane().hole(9.6)
+base = base.faces('>Z').workplane().circle(5.5).extrude(3)
+cutout = cq.Workplane("XY").workplane(offset=11).rect(10, 7).extrude(5)
+base = base.cut(cutout)
+cutout = cq.Workplane("XY").workplane(offset=11).moveTo(4,0).rect(5, 20).extrude(4)
+base = base.cut(cutout)
+cutout = cq.Workplane("XY").workplane(offset=11).moveTo(-4,0).rect(5, 20).extrude(4)
+base = base.cut(cutout)
+#base = base.faces(">Z").fillet(1)
+cq.exporters.export(base, '/home/mhermans/projects/learning_3d/xmas_lights_base.stl')

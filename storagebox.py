@@ -3,9 +3,9 @@
 
 import cadquery as cq
 
-box_with    = 50     # x-axis
+box_with    = 100     # x-axis
 box_depth   = 100    # y-axis
-box_height  = 50     # z-axis
+box_height  = 75     # z-axis
 wall_with   = 1
 
 tab_width = box_depth/2 # default tag along half the wall
@@ -40,5 +40,5 @@ tab = tab.translate( (-tab_align_wall, 0, tab_align_top) )
 box = box.union(tab)
 show_object(box)
 
-fn = ''.join(['storebox_', str(box_with), 'x', str(box_depth), 'x', str(box_height), '.stl'])
-cq.exporters.export(box , ''.join(['/home/mhermans/tmp/', fn]) )
+fn = ''.join(['storagebox_', str(box_with), 'x', str(box_depth), 'x', str(box_height), '.stl'])
+cq.exporters.export(box , ''.join(['/home/mhermans/projects/learning_3d/storagebox/', fn]) )
